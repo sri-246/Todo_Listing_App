@@ -63,7 +63,7 @@ function Dashboard({user}) {
     };
 
     const handleDelete = async (id) => {
-       if(windows.confirm('Are you sure you want to delete this task?')){
+       if(window.confirm('Are you sure you want to delete this task?')){
         try{
             await axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${id}`,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},}

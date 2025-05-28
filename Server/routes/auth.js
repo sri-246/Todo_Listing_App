@@ -30,8 +30,8 @@ router.get(
   }
 );
 
-router.get('user', async (req,res) => {
-    const token = req.header('Authorization')?.replace('Bearer', '');
+router.get('/user', async (req,res) => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
     if(!token) return res.status(401).json({msg:'No token provided'});
 
     try{

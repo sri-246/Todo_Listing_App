@@ -25,7 +25,7 @@ router.get('/', auth, async (req,res) => {
 });
 
 router.put('/:id', auth, async (req,res) => {
-    const { title, description, cmpleted} = req.body;
+    const { title, description, completed} = req.body;  // Fixed typo here
     try{
         const task = await Task.findOneAndUpdate(
             {_id: req.params.id, user:req.user.id},
@@ -37,7 +37,6 @@ router.put('/:id', auth, async (req,res) => {
     }catch(error){
         res.status(500).json({msg: 'Server Error'});
     }
-    
 });
 
 router.delete('/:id', auth, async(req,res) => {
