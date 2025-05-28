@@ -10,19 +10,12 @@ const taskRoutes = require('./routes/task');
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://todoapp-85mm.onrender.com');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  
-  next();
-});
+const corsOptions = {
+  origin: 'https://todoapp-85mm.onrender.com',
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(passport.initialize());
 
@@ -34,5 +27,4 @@ app.use('/auth', authRoutes);
 app.use('/tasks', taskRoutes);
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
