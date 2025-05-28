@@ -1,0 +1,166 @@
+.dashboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input,
+.task-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-form button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-form button:hover {
+  background-color: #218838;
+}
+
+.task-form button:nth-child(2) {
+  background-color: #6c757d;
+}
+
+.task-form button:nth-child(2):hover {
+  background-color: #5a6268;
+}
+
+.task-section {
+  margin-bottom: 30px;
+}
+
+.task-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.task-list {
+  display: grid;
+  gap: 15px;
+}
+
+.task-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.task-item.completed {
+  background-color: #e0e0e0;
+  opacity: 0.8;
+}
+
+.task-item.completed-animation {
+  animation: completeFlash 0.5s ease;
+}
+
+@keyframes completeFlash {
+  0% {
+    background-color: #28a745;
+    color: white;
+  }
+  100% {
+    background-color: #e0e0e0;
+    color: black;
+  }
+}
+
+.task-item h3 {
+  margin: 0 0 10px;
+}
+
+.task-item p {
+  margin: 0 0 10px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.task-actions button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task-actions button:nth-child(1) {
+  background-color: #007bff;
+  color: white;
+}
+
+.task-actions button:nth-child(1):hover {
+  background-color: #0056b3;
+}
+
+.task-actions button:nth-child(2) {
+  background-color: #ffc107;
+  color: black;
+}
+
+.task-actions button:nth-child(2):hover {
+  background-color: #e0a800;
+}
+
+.task-actions button:nth-child(3) {
+  background-color: #dc3545;
+  color: white;
+}
+
+.task-actions button:nth-child(3):hover {
+  background-color: #c82333;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .task-form input,
+  .task-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .task-form button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .task-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .task-item {
+    padding: 10px;
+  }
+
+  .task-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .task-actions button {
+    font-size: 0.8rem;
+    padding: 5px;
+    width: 100%;
+  }
+}
